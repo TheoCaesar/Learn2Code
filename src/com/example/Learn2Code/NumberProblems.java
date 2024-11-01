@@ -13,7 +13,7 @@ public class NumberProblems {
 		int num = userInput.nextInt();
 		userInput.close();
 
-		int count = 0;
+		int count=0;
 			
 		for (int i = 1; i < num; i++) {
 			int result = 0;
@@ -30,7 +30,57 @@ public class NumberProblems {
 		System.out.printf((count > 2) ? "%d is a prime number": "%d is not a prime number", num );
 	}
 	
-	public static void perfectNumber() {
+	public 	static void armstrong() {
+		/*
+		 * A program that takes a number 
+		 * and tells us if its an Armstrong
+		 * number or not. 153 has 3 digits.
+		 * 153 = (1^3) + (5^3) + (3^3)
+		 * 153 = 1 + 125 + 9 = Armstrong
+		 */
+		
+		System.out.print("Armstrong Numbers");
+		System.out.println("\n------------------");
+		System.out.print("Enter a number: \t");
+		
+		Scanner userInput = new Scanner(System.in);
+		int val = userInput.nextInt();
+		userInput.close();
+		
+		//get count
+		int cpnum = val;
+		int count = 0;
+		while (cpnum > 0) {
+			cpnum /= 10;
+			count++;
+		}
+		System.out.printf("count: %d", count);
+		System.out.println("\n----------------------------");
+
+		//access each value and cube it
+		cpnum = val;
+		int sum = 0;
+		while (cpnum > 0) {
+			int remainder = cpnum % 10;
+			int cubic = 1;
+			int cpcount = count;
+			while (cpcount > 0) {
+				cubic *= remainder;
+				cpcount--;
+			}
+			cpnum /= 10;
+			sum += cubic;
+			System.out.printf("\nremainder: %d || cpnum: %d || cubic: %d || sum: %d\n"
+					,remainder, cpnum, cubic, sum);
+
+		}
+		System.out.println("\n----------------------------");
+		System.out.printf((sum == val) ? 
+				"\n%d is an Armstrong number":
+					"\n%d is not an Armstrong number", sum);
+	}
+	
+ 	public static void perfectNumber() {
 		/*
 		 * a simple program to check if a 
 		 * number is perfect or otherwise
