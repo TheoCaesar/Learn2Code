@@ -13,12 +13,43 @@ class Dog {
 	}
 }
 
+class Login {
+	private String userName;
+	private String password;
+	
+	//get password - by convention getter must have 'get' in name;
+	public String mamiPassword() {
+		return this.userName;
+	}
+
+	//get password
+	public String hamiUsername() {
+		return this.password;
+	}
+	
+	//set userName - conventionally have set in setter
+	public void boDinWei(String username) {
+		this.userName = username;
+	}
+	
+	//set password
+	public void typeCodeWei(String password) {
+		this.password = password;
+	}
+}
+
 public class OOPS {
 	public static void basic() {
-	
-		Dog pero = new Dog("husky", 8);	
+		Login session = new Login();
 		
-		System.out.printf("Dog is a %s of %d years old\n"
-				, pero.breed, pero.age);
+		//assign values via setter
+		session.boDinWei("@axelson");
+		session.typeCodeWei("123#Fro;");
+		
+		//fetch values via getters
+		String sessionPassword = session.mamiPassword();
+		String sessionUsername = session.hamiUsername();
+		
+		System.out.printf("Trying to login with %s - %s", sessionPassword, sessionUsername);
 	}
 }
