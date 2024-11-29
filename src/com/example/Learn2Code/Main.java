@@ -3,6 +3,9 @@ public class Main {
 	public static void main(String [] args) {
 //		OOPS.basics();
 //		OOPS.encapsulation();
-		OOPS.inheritance();
+//		OOPS.inheritance();
+//		OOPS.overloading();
+//		OOPS.overriding();
+		OOPS.abstraction();
 	}
 } 

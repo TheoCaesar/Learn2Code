@@ -85,7 +85,22 @@ class Mother extends Abusua { //simple
 //	}
 //}
 
-
+class Sum{
+	public int add(int x) {
+		System.out.println("\ngot one params");
+		return 5 + x;
+	}
+	
+	public int add(int x, int y) {
+		System.out.println("\ngot two params");
+		return x + y;
+	}
+	
+	public int add(int x, int y, int z) {
+		System.out.println("\ngot three params");
+		return x + y + z;
+	}
+}
 
 class Dog {
 	String breed;
@@ -122,6 +137,86 @@ class Login {
 	//set password
 	public void typeCodeWei(String password) {
 		this.password = password;
+	}
+}
+
+class Bird {
+	Bird() {
+		System.out.println("\nI am a bird...");
+	}
+	
+	void makeNoise(){
+		System.out.println("\n*** making bird sounds ***\n");
+	}
+}
+
+class Belebele extends Bird {
+	Belebele(){
+		System.out.println("\tI am belebele...");		
+	}
+	//no override
+}
+
+class Hen extends Bird {
+	Hen() {
+		System.out.println("\tI am a hen");
+	}
+	
+	void makeNoise(){
+		System.out.println("\t*** making hen sounds ***\n\tcluckity cluck cluck\n");
+	}
+}
+
+class Duck extends Bird {
+	Duck() {
+		System.out.println("\tI am a duck");
+	}
+	
+	void makeNoise(){
+		System.out.println("\t*** making duck sounds ***\n\tquackity quack quack\n");
+	}
+}
+
+abstract class ATM {
+	public void runAll() {
+		System.out.println(
+				"regular method from abstract class...");
+		this.deposit();
+		this.checkBalance();
+		this.withdraw();
+	}
+	abstract public void deposit();
+	abstract public void withdraw();
+	abstract public void checkBalance();
+}
+
+class Teller extends ATM  {
+	public void deposit() {
+		System.out.println("taking deposits...");
+	}
+	
+	public void withdraw() {
+		System.out.println("making withdrawal...");
+	}
+	
+	public void checkBalance() {
+		System.out.println("checking balance...");
+	}
+	
+}
+
+interface Shop {
+	abstract void makeSale();
+	abstract void makePurchase();
+}
+
+class Container implements Shop{
+	public void makeSale() {
+		System.out.println("lets make a sale...");
+	}
+	
+	public void makePurchase() {
+		System.out.println("lets make a purchase...");
 	}
 }
 
@@ -176,5 +271,40 @@ public class OOPS {
 		
 		System.out.printf("\nTrying to login with %s - %s",
 				sessionPassword, sessionUsername);
+	}
+	
+//	polymorphism - overloading & overriding
+	public static void overloading() {
+		Sum val = new Sum();
+		
+		int ans = val.add(5);
+		System.out.printf("ans = " + ans + "\n");
+		
+		ans = val.add(5, 10);
+		System.out.println("ans = " + ans+ "\n");
+		
+		ans = val.add(5, 10, 15);
+		System.out.println("ans = " + ans+ "\n");
+	}
+	
+	public static void overriding() {
+		//create child classes
+		Belebele cGodo = new Belebele();
+		Hen akuko = new Hen();
+		Duck dabodabo = new Duck();
+		
+		//run methods
+		cGodo.makeNoise();
+		akuko.makeNoise();
+		dabodabo.makeNoise();
+
+	}
+
+	public static void abstraction() {
+		ATM scbAtm = new Teller();
+		scbAtm.runAll();
+//		scbAtm.checkBalance();
+//		scbAtm.deposit();
+//		scbAtm.withdraw();
 	}
 }
