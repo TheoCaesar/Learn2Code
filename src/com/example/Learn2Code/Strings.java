@@ -124,7 +124,7 @@ public class Strings {
 		console.close();
 	}
 
-	
+	 
 	
 	
 	
